@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Time Cure Technologies – IT & Networking Services</title>
 <meta name="description" content="Network design, router and switch configuration, Wi-Fi, security, cabling and IT maintenance by Time Cure Technologies.">
-<meta name="theme-color" content="#060A1C">
+<meta name="theme-color" content="#060A1C" id="metaTheme">
+<script>try{var t=localStorage.getItem('tc-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-bs-theme',t)}catch(e){}</script>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Time Cure Technologies","description":"IT services: networking, router and switch configuration, Wi-Fi, security, cabling and maintenance.","telephone":"+971524509691","address":{"@type":"PostalAddress","streetAddress":"Musaffah Industrial Area M45, near Red Star Gift Center","addressLocality":"Abu Dhabi","addressCountry":"AE"},"openingHours":"Mo-Sa 09:00-17:00"}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,138 +18,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-<style>
-:root{
-  --ink:#060A1C; --ink-2:#0A1128; --panel:#0E1633; --panel-2:#131D42;
-  --line:rgba(130,165,255,.16); --line-strong:rgba(130,165,255,.34);
-  --cyan:#2DE2E6; --violet:#8B6CFF; --text:#E8ECFF; --muted:#9BA7D3;
-  --bs-body-bg:var(--ink); --bs-body-color:var(--text);
-  --bs-body-font-family:'IBM Plex Sans',system-ui,sans-serif;
-  --bs-primary:#2DE2E6; --bs-primary-rgb:45,226,230;
-}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--ink);line-height:1.65}
-h1,h2,h3,h4,h5,.brand-text{font-family:'Sora',sans-serif;letter-spacing:-.02em}
-a{color:var(--cyan)}
-.text-muted-2{color:var(--muted)!important}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
-
-/* Buttons */
-.btn-tc{background:linear-gradient(135deg,var(--cyan),#5B8CFF);color:#04101F;font-weight:600;border:0;padding:.8rem 1.5rem;border-radius:12px;transition:transform .2s,box-shadow .2s}
-.btn-tc:hover{color:#04101F;transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(45,226,230,.55)}
-.btn-ghost{border:1px solid var(--line-strong);color:var(--text);padding:.8rem 1.5rem;border-radius:12px;background:rgba(255,255,255,.03)}
-.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(45,226,230,.06)}
-
-/* Navbar */
-.navbar{background:rgba(6,10,28,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
-.navbar.scrolled{border-bottom-color:var(--line);background:rgba(6,10,28,.9)}
-.navbar .nav-link{color:var(--muted);font-weight:500;padding:.5rem .9rem}
-.navbar .nav-link:hover,.navbar .nav-link.active{color:var(--text)}
-.brand-text{font-weight:700;font-size:1.1rem;color:var(--text);line-height:1.1}
-.brand-text small{display:block;font-family:'IBM Plex Sans';font-weight:400;font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
-
-/* Hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:7rem 0 4rem;
-  background:radial-gradient(900px 500px at 85% 20%,rgba(139,108,255,.18),transparent 60%),radial-gradient(700px 500px at 10% 90%,rgba(45,226,230,.10),transparent 60%),var(--ink)}
-#net{position:absolute;inset:0;width:100%;height:100%}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(90deg,var(--ink) 0%,rgba(6,10,28,.82) 38%,rgba(6,10,28,0) 70%)}
-.hero .container{position:relative;z-index:2}
-.hero h1{font-size:clamp(2.4rem,5.6vw,4.6rem);font-weight:800;line-height:1.04}
-.hero h1 span{display:block;color:var(--muted);font-weight:600}
-.hero p.lead{max-width:34rem;color:var(--muted)}
-.status-pill{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--line-strong);background:rgba(14,22,51,.7);padding:.4rem .9rem;border-radius:99px;font-size:.85rem;color:var(--muted)}
-.dot{width:8px;height:8px;border-radius:50%;background:#3DF5A0;box-shadow:0 0 0 0 rgba(61,245,160,.6);animation:ping 2s infinite}
-@keyframes ping{70%{box-shadow:0 0 0 10px rgba(61,245,160,0)}100%{box-shadow:0 0 0 0 rgba(61,245,160,0)}}
-.hero-legend{position:absolute;right:4%;bottom:2.2rem;z-index:2;font-size:.78rem;color:var(--muted);display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:flex-end}
-.hero-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.4rem}
-.hero-intro{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.hero-intro.d2{animation-delay:.12s}.hero-intro.d3{animation-delay:.24s}.hero-intro.d4{animation-delay:.36s}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-
-/* Trust strip */
-.strip{border-block:1px solid var(--line);background:var(--ink-2)}
-.strip .item{display:flex;gap:.8rem;align-items:center;padding:1.2rem .5rem}
-.strip i{font-size:1.5rem;color:var(--cyan)}
-.strip b{display:block;font-family:'Sora';font-size:.98rem}
-.strip small{color:var(--muted)}
-
-/* Sections */
-section{padding:6rem 0}
-.sec-title{font-size:clamp(1.8rem,3.4vw,2.7rem);font-weight:700;max-width:30rem}
-.sec-sub{color:var(--muted);max-width:34rem}
-
-/* Service bento */
-.tile{height:100%;background:linear-gradient(180deg,var(--panel),var(--ink-2));border:1px solid var(--line);border-radius:20px;padding:1.8rem;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
-.tile:hover{border-color:var(--line-strong)}
-.tile .ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;color:var(--cyan);background:rgba(45,226,230,.08);border:1px solid rgba(45,226,230,.25);margin-bottom:1.1rem}
-.tile h3{font-size:1.2rem;font-weight:600}
-.tile p{color:var(--muted);margin-bottom:.8rem}
-.tile ul{list-style:none;padding:0;margin:0;color:var(--muted);font-size:.93rem}
-.tile li{padding:.18rem 0}
-.tile li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--violet);margin-right:.65rem;vertical-align:middle}
-.tile.feature{background:radial-gradient(500px 260px at 100% 0,rgba(139,108,255,.18),transparent 70%),linear-gradient(180deg,var(--panel),var(--ink-2))}
-pre.cli{margin:1.2rem 0 0;background:#04081A;border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;font-size:.78rem;line-height:1.7;color:#BFD0FF;overflow-x:auto}
-pre.cli .c{color:#6E7DB8}.cli .k{color:var(--cyan)}.cli .v{color:#B9A6FF}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem}
-.chip{border:1px solid var(--line-strong);border-radius:99px;padding:.4rem 1rem;font-size:.9rem;color:var(--muted);background:rgba(255,255,255,.02)}
-
-/* Process */
-.process{background:var(--ink-2);border-block:1px solid var(--line)}
-.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.steps::before{content:"";position:absolute;left:6%;right:6%;top:23px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--violet));opacity:.45}
-.step{position:relative}
-.step .n{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:'Sora';font-weight:700;background:var(--ink);border:2px solid var(--cyan);color:var(--cyan);position:relative;z-index:1;margin-bottom:1.1rem}
-.step h3{font-size:1.1rem}.step p{color:var(--muted);font-size:.94rem;max-width:15rem}
-@media(max-width:767px){.steps{grid-template-columns:1fr}.steps::before{display:none}}
-
-/* Plans */
-.plan{height:100%;border:1px solid var(--line);border-radius:20px;padding:2rem;background:var(--panel)}
-.plan.best{border-color:var(--cyan);background:linear-gradient(180deg,rgba(45,226,230,.08),var(--panel));box-shadow:0 0 0 1px rgba(45,226,230,.25),0 30px 60px -30px rgba(45,226,230,.35)}
-.plan h3{font-size:1.25rem}.plan .price{font-family:'Sora';font-size:1.6rem;font-weight:700;margin:.6rem 0 1rem}
-.plan .price small{font-family:'IBM Plex Sans';font-size:.85rem;color:var(--muted);font-weight:400}
-.plan ul{list-style:none;padding:0;margin:0 0 1.5rem}
-.plan li{padding:.4rem 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.94rem}
-.plan li i{color:var(--cyan);margin-right:.5rem}
-.plan li.off i{color:#4C5883}.plan li.off{opacity:.65}
-.badge-best{background:var(--cyan);color:#04101F;font-weight:600;font-size:.75rem;border-radius:99px;padding:.25rem .7rem;margin-left:.5rem;vertical-align:middle}
-
-/* Brands */
-.brands{display:flex;flex-wrap:wrap;gap:.5rem 2.5rem;justify-content:center;font-family:'Sora';font-weight:600;font-size:1.25rem;color:#56648F}
-.brands span{transition:color .25s}.brands span:hover{color:var(--text)}
-
-/* Why */
-.why-item{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
-.why-item:last-child{border:0}
-.why-item i{font-size:1.4rem;color:var(--violet);margin-top:.1rem}
-.why-item h4{font-size:1.05rem;margin:0 0 .15rem}.why-item p{margin:0;color:var(--muted);font-size:.94rem}
-
-/* Contact */
-.contact-card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:2.2rem}
-.form-control,.form-select{background:var(--ink-2);border:1px solid var(--line-strong);color:var(--text);padding:.75rem 1rem;border-radius:12px}
-.form-control:focus,.form-select:focus{background:var(--ink-2);color:var(--text);border-color:var(--cyan);box-shadow:0 0 0 .2rem rgba(45,226,230,.15)}
-.form-control::placeholder{color:#5F6D9E}
-.form-label{font-size:.88rem;color:var(--muted)}
-.info-row{display:flex;gap:1rem;margin-bottom:1.4rem}
-.info-row i{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:rgba(139,108,255,.12);border:1px solid rgba(139,108,255,.35);color:#B9A6FF;font-size:1.1rem}
-.info-row b{display:block;font-family:'Sora';font-size:.98rem}.info-row span,.info-row a{color:var(--muted);text-decoration:none}
-
-/* Footer */
-footer{background:var(--ink-2);border-top:1px solid var(--line);padding:3.5rem 0 1.5rem}
-footer h5{font-size:.95rem;margin-bottom:1rem}
-footer ul{list-style:none;padding:0;margin:0}footer li{padding:.25rem 0}
-footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan)}
-.social a{width:40px;height:40px;display:inline-grid;place-items:center;border:1px solid var(--line-strong);border-radius:10px;margin-right:.5rem}
-
-/* Floating WhatsApp */
-.wa{position:fixed;right:20px;bottom:20px;z-index:1030;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;font-size:1.6rem;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .2s}
-.wa:hover{transform:scale(1.08);color:#fff}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-</style>
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
@@ -155,46 +29,48 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
       <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#2DE2E6"/><stop offset="1" stop-color="#8B6CFF"/></linearGradient></defs>
         <path d="M20 4a16 16 0 1 0 16 16" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
-        <path d="M20 11v9l6 4" stroke="#E8ECFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 11v9l6 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="34" cy="8" r="3.2" fill="#2DE2E6"/>
       </svg>
       <span class="brand-text">Time Cure<small>TECHNOLOGIES</small></span>
     </a>
+    <button class="theme-btn ms-auto me-2 ms-lg-3 order-lg-3" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Switch theme"><i class="bi bi-moon-stars-fill t-moon"></i><i class="bi bi-sun-fill t-sun"></i></button>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
       <i class="bi bi-list fs-2"></i>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#process">How we work</a></li>
-        <li class="nav-item"><a class="nav-link" href="#plans">Maintenance plans</a></li>
         <li class="nav-item"><a class="nav-link" href="#why">Why us</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn btn-tc">Get a free quote</a>
+      <a href="#contact" class="btn btn-tc"><i class="bi bi-whatsapp me-2"></i>Get a free quote</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero" id="top">
+  <div class="hero-photo" aria-hidden="true"></div>
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
-        <div class="status-pill hero-intro mb-4"><span class="dot"></span> Support line open 24/7 for contract clients</div>
+        <div class="status-pill hero-intro mb-4"><span class="dot"></span> Based in Musaffah, Abu Dhabi &middot; Serving businesses across the UAE</div>
         <h1 class="hero-intro d2">Networks that stay up.<span>Problems fixed on time.</span></h1>
         <p class="lead hero-intro d3 mt-4 mb-4">Time Cure Technologies designs, configures and maintains business networks: routers, switches, Wi-Fi, security and cabling, from first survey to ongoing support.</p>
         <div class="d-flex flex-wrap gap-3 hero-intro d4">
-          <a href="#contact" class="btn btn-tc btn-lg">Get a free quote</a>
-          <a href="#services" class="btn btn-ghost btn-lg">See our services</a>
+          <a href="#contact" class="btn btn-tc btn-lg"><i class="bi bi-chat-dots me-2"></i>Get a free quote</a>
+          <a href="#services" class="btn btn-ghost btn-lg"><i class="bi bi-grid-1x2 me-2"></i>See our services</a>
         </div>
       </div>
     </div>
   </div>
   <div class="hero-legend d-none d-md-flex">
-    <span><i style="background:#2DE2E6"></i>Router / core</span>
-    <span><i style="background:#8B6CFF"></i>Switch / device</span>
+    <span><i style="background:var(--cyan)"></i>Router / core</span>
+    <span><i style="background:var(--violet)"></i>Switch / device</span>
     <span>Move your cursor over the network</span>
   </div>
 </header>
@@ -203,13 +79,45 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
 <div class="strip">
   <div class="container">
     <div class="row">
-      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-lightning-charge"></i><div><b>48-hour start</b><small>Typical project kick-off</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-geo-alt-fill"></i><div><b>Abu Dhabi based</b><small>Musaffah Industrial Area</small></div></div></div>
       <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-hdd-network"></i><div><b>Multi-brand</b><small>Cisco, MikroTik, Huawei and more</small></div></div></div>
-      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-geo-alt"></i><div><b>On-site and remote</b><small>Whichever fixes it faster</small></div></div></div>
-      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-receipt"></i><div><b>Clear quotations</b><small>No hidden charges</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-person-workspace"></i><div><b>On-site and remote</b><small>Whichever fixes it faster</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="item"><i class="bi bi-clock-history"></i><div><b>Mon–Sat, 9 AM – 5 PM</b><small>Open six days a week</small></div></div></div>
     </div>
   </div>
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="row g-5 align-items-stretch">
+      <div class="col-lg-6"><div class="photo about-img" role="img" aria-label="Network rack, switch and router"></div></div>
+      <div class="col-lg-6">
+        <h2 class="sec-title mb-4">Your network partner in Abu Dhabi</h2>
+        <div class="mv"><i class="bi bi-bullseye"></i><div><h3>Our mission</h3><p>To keep your business connected with dependable networks, clean configuration and fast, friendly support.</p></div></div>
+        <div class="mv"><i class="bi bi-eye"></i><div><h3>Our vision</h3><p>To be the IT and networking company that businesses across the UAE call first.</p></div></div>
+        <h3 class="h5 mt-4 mb-3">Why choose us</h3>
+        <div class="row">
+          <div class="col-sm-6"><div class="feat"><i class="bi bi-person-badge"></i>Skilled engineers</div></div>
+          <div class="col-sm-6"><div class="feat"><i class="bi bi-lightning-charge"></i>Hassle-free setup</div></div>
+          <div class="col-sm-6"><div class="feat"><i class="bi bi-sliders"></i>Tailored solutions</div></div>
+          <div class="col-sm-6"><div class="feat"><i class="bi bi-patch-check"></i>Trusted brands</div></div>
+        </div>
+        <ul class="checks mt-2">
+          <li><i class="bi bi-check-circle-fill"></i>Network design and installation</li>
+          <li><i class="bi bi-check-circle-fill"></i>Router, switch and Wi-Fi configuration</li>
+          <li><i class="bi bi-check-circle-fill"></i>Security, cabling and IT maintenance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats"><div class="row g-3">
+      <div class="col-6 col-md-3 stat"><i class="bi bi-calendar-week"></i><b data-count="6">0</b><span>Days a week of support</span></div>
+      <div class="col-6 col-md-3 stat"><i class="bi bi-hdd-network"></i><b data-count="8">0</b><span>Network brands we configure</span></div>
+      <div class="col-6 col-md-3 stat"><i class="bi bi-grid-1x2"></i><b data-count="7">0</b><span>Core services</span></div>
+      <div class="col-6 col-md-3 stat"><i class="bi bi-buildings"></i><b data-count="7">0</b><span>Industries served</span></div>
+    </div></div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -221,7 +129,7 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
 
     <div class="row g-3">
       <div class="col-lg-7">
-        <div class="tile feature">
+        <div class="tile feature"><div class="tile-img img-s1"></div>
           <div class="ico"><i class="bi bi-diagram-3"></i></div>
           <h3>Network design and installation</h3>
           <p>We survey your site, plan the layout and build a LAN or WAN that fits your space, users and budget.</p>
@@ -234,7 +142,7 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
       </div>
       <div class="col-lg-5">
         <div class="tile">
-          <div class="ico"><i class="bi bi-router"></i></div>
+          <div class="tile-img img-s2"></div><div class="ico"><i class="bi bi-router"></i></div>
           <h3>Router and switch configuration</h3>
           <p>VLANs, routing, DHCP, NAT, failover and backups, set up cleanly and documented.</p>
           <pre class="cli" aria-label="Example MikroTik configuration"><span class="c"># Example: office VLAN on MikroTik</span>
@@ -246,15 +154,19 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
 
       <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-wifi"></i></div><h3>Wi-Fi solutions</h3><p>Full-coverage wireless with access points, controllers and guest networks.</p></div></div>
       <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-shield-lock"></i></div><h3>Network security</h3><p>Firewalls, VPNs, content filtering and access control to protect your data.</p></div></div>
-      <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-plug"></i></div><h3>Structured cabling</h3><p>Cat6 and fiber runs, patch panels and tidy, labeled, tested racks.</p></div></div>
-      <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-tools"></i></div><h3>IT maintenance (AMC)</h3><p>Preventive visits, monitoring and fast troubleshooting under a monthly plan.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-ethernet"></i></div><h3>Structured cabling</h3><p>Cat6 and fiber runs, patch panels and tidy, labeled, tested racks.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="tile"><div class="ico"><i class="bi bi-wrench-adjustable-circle"></i></div><h3>IT maintenance (AMC)</h3><p>Preventive visits, monitoring and fast troubleshooting under a maintenance contract.</p></div></div>
     </div>
 
     <div class="mt-4">
       <p class="text-muted-2 mb-2">Also available</p>
       <div class="chips">
-        <span class="chip">CCTV and IP cameras</span><span class="chip">IP telephony / PBX</span><span class="chip">File and backup servers</span>
-        <span class="chip">Hardware supply (routers, switches, UPS)</span><span class="chip">Firmware upgrades and config backups</span><span class="chip">Emergency downtime support</span>
+        <span class="chip"><i class="bi bi-camera-video"></i>CCTV and IP cameras</span>
+        <span class="chip"><i class="bi bi-telephone-inbound"></i>IP telephony / PBX</span>
+        <span class="chip"><i class="bi bi-hdd-rack"></i>File and backup servers</span>
+        <span class="chip"><i class="bi bi-box-seam"></i>Hardware supply (routers, switches, UPS)</span>
+        <span class="chip"><i class="bi bi-cloud-arrow-down"></i>Firmware upgrades and config backups</span>
+        <span class="chip"><i class="bi bi-exclamation-triangle"></i>Emergency downtime support</span>
       </div>
     </div>
   </div>
@@ -265,61 +177,10 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
   <div class="container">
     <h2 class="sec-title mb-5">From first call to ongoing support</h2>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Consult</h3><p>We listen, visit your site and learn how your team works.</p></div>
-      <div class="step"><div class="n">2</div><h3>Plan</h3><p>You receive a clear design and quotation before any work starts.</p></div>
-      <div class="step"><div class="n">3</div><h3>Implement</h3><p>We install, configure and test with minimal disruption to your day.</p></div>
-      <div class="step"><div class="n">4</div><h3>Support</h3><p>We monitor, maintain and respond fast when something needs attention.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section id="plans">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="sec-title mx-auto">Maintenance plans that prevent downtime</h2>
-      <p class="sec-sub mx-auto mt-3">Pick a monthly plan, or ask for a custom one for multi-site networks.</p>
-    </div>
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="plan">
-          <h3>Basic</h3><div class="price">PKR [____] <small>/ month</small></div>
-          <ul>
-            <li><i class="bi bi-check2"></i>1 on-site visit per month</li>
-            <li><i class="bi bi-check2"></i>Remote support in business hours</li>
-            <li><i class="bi bi-check2"></i>Configuration backups</li>
-            <li class="off"><i class="bi bi-dash"></i>Priority response</li>
-            <li class="off"><i class="bi bi-dash"></i>Network monitoring</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost w-100" data-plan="Basic">Choose Basic</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="plan best">
-          <h3>Standard <span class="badge-best">Most chosen</span></h3><div class="price">PKR [____] <small>/ month</small></div>
-          <ul>
-            <li><i class="bi bi-check2"></i>2 on-site visits per month</li>
-            <li><i class="bi bi-check2"></i>Remote support, extended hours</li>
-            <li><i class="bi bi-check2"></i>Configuration backups</li>
-            <li><i class="bi bi-check2"></i>Priority response</li>
-            <li><i class="bi bi-check2"></i>Basic network monitoring</li>
-          </ul>
-          <a href="#contact" class="btn btn-tc w-100" data-plan="Standard">Choose Standard</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="plan">
-          <h3>Premium</h3><div class="price">PKR [____] <small>/ month</small></div>
-          <ul>
-            <li><i class="bi bi-check2"></i>Weekly on-site visits</li>
-            <li><i class="bi bi-check2"></i>24/7 remote and emergency support</li>
-            <li><i class="bi bi-check2"></i>Configuration backups</li>
-            <li><i class="bi bi-check2"></i>Priority response</li>
-            <li><i class="bi bi-check2"></i>Advanced network monitoring</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost w-100" data-plan="Premium">Choose Premium</a>
-        </div>
-      </div>
+      <div class="step"><div class="n"><i class="bi bi-chat-dots"></i></div><h3>Consult</h3><p>We listen, visit your site and learn how your team works.</p></div>
+      <div class="step"><div class="n"><i class="bi bi-clipboard-check"></i></div><h3>Plan</h3><p>You receive a clear design and quotation before any work starts.</p></div>
+      <div class="step"><div class="n"><i class="bi bi-gear-wide-connected"></i></div><h3>Implement</h3><p>We install, configure and test with minimal disruption to your day.</p></div>
+      <div class="step"><div class="n"><i class="bi bi-headset"></i></div><h3>Support</h3><p>We monitor, maintain and respond fast when something needs attention.</p></div>
     </div>
   </div>
 </section>
@@ -340,8 +201,8 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
         <h2 class="sec-title">Why businesses choose Time Cure</h2>
         <p class="sec-sub mt-3">Our name is our promise: we cure your technology problems on time, and we explain what we did in plain language.</p>
         <div class="chips mt-4">
-          <span class="chip">Offices</span><span class="chip">Schools and universities</span><span class="chip">Clinics</span>
-          <span class="chip">Shops and retail</span><span class="chip">Factories</span><span class="chip">ISPs and cable networks</span><span class="chip">Homes</span>
+          <span class="chip"><i class="bi bi-building"></i>Offices</span><span class="chip"><i class="bi bi-mortarboard"></i>Schools</span><span class="chip"><i class="bi bi-hospital"></i>Clinics</span>
+          <span class="chip"><i class="bi bi-shop"></i>Shops and retail</span><span class="chip"><i class="bi bi-buildings"></i>Warehouses and factories</span><span class="chip"><i class="bi bi-broadcast"></i>ISPs</span><span class="chip"><i class="bi bi-house-door"></i>Homes</span>
         </div>
       </div>
       <div class="col-lg-6 ms-lg-auto">
@@ -356,26 +217,26 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="background:radial-gradient(700px 400px at 90% 10%,rgba(139,108,255,.14),transparent 60%),var(--ink-2);border-top:1px solid var(--line)">
+<section id="contact" style="background:var(--ink-2);border-top:1px solid var(--line)">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-5">
         <h2 class="sec-title">Tell us what you need</h2>
         <p class="sec-sub mt-3 mb-4">Send your requirement and we will reply with a free consultation and quotation, usually within 24 hours.</p>
-        <div class="info-row"><i class="bi bi-telephone"></i><div><b>Phone / WhatsApp</b><a href="tel:+92XXXXXXXXXX" id="phoneLink">[+92 XXX XXXXXXX]</a></div></div>
-        <div class="info-row"><i class="bi bi-envelope"></i><div><b>Email</b><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div></div>
-        <div class="info-row"><i class="bi bi-geo-alt"></i><div><b>Office</b><span>[Your office address]</span></div></div>
-        <div class="info-row"><i class="bi bi-clock"></i><div><b>Hours</b><span>Mon–Sat, 9:00 AM – 6:00 PM<br>Emergency support for contract clients</span></div></div>
-      </div>
+        <div class="info-row"><i class="bi bi-telephone"></i><div><b>Phone</b><a href="tel:+971524509691">+971 52 450 9691</a></div></div>
+        <div class="info-row"><i class="bi bi-whatsapp"></i><div><b>WhatsApp</b><a href="https://wa.me/971524509691" target="_blank" rel="noopener">+971 52 450 9691</a></div></div>
+        <div class="info-row"><i class="bi bi-geo-alt"></i><div><b>Office</b><span>Musaffah Industrial Area M45, near Red Star Gift Center, Abu Dhabi, UAE<br><a href="https://www.google.com/maps/search/?api=1&query=Musaffah+Industrial+Area+M45+Abu+Dhabi" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1"></i>Get directions</a></span></div></div>
+        <div class="info-row"><i class="bi bi-clock"></i><div><b>Hours</b><span>Monday to Saturday<br>9:00 AM – 5:00 PM</span></div></div>
+      <div class="map mt-2"><iframe title="Time Cure Technologies location" src="https://www.google.com/maps?q=Musaffah+Industrial+Area+M45+Abu+Dhabi&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>
       <div class="col-lg-7">
         <form class="contact-card needs-validation" id="quoteForm" novalidate>
           <div class="row g-3">
-            <div class="col-md-6"><label class="form-label" for="name">Full name</label><input class="form-control" id="name" required placeholder="Your name"><div class="invalid-feedback">Enter your name.</div></div>
-            <div class="col-md-6"><label class="form-label" for="phone">Phone</label><input class="form-control" id="phone" type="tel" required placeholder="03XX XXXXXXX" pattern="[0-9+\s\-]{9,}"><div class="invalid-feedback">Enter a valid phone number.</div></div>
-            <div class="col-md-6"><label class="form-label" for="email">Email</label><input class="form-control" id="email" type="email" placeholder="you@company.com"></div>
-            <div class="col-md-6"><label class="form-label" for="company">Company</label><input class="form-control" id="company" placeholder="Company name"></div>
+            <div class="col-md-6"><label class="form-label" for="name"><i class="bi bi-person"></i>Full name</label><input class="form-control" id="name" required placeholder="Your name"><div class="invalid-feedback">Enter your name.</div></div>
+            <div class="col-md-6"><label class="form-label" for="phone"><i class="bi bi-telephone"></i>Phone</label><input class="form-control" id="phone" type="tel" required placeholder="05X XXX XXXX" pattern="[0-9+\s\-]{9,}"><div class="invalid-feedback">Enter a valid phone number.</div></div>
+            <div class="col-md-6"><label class="form-label" for="email"><i class="bi bi-envelope"></i>Email</label><input class="form-control" id="email" type="email" placeholder="you@company.com"></div>
+            <div class="col-md-6"><label class="form-label" for="company"><i class="bi bi-building"></i>Company</label><input class="form-control" id="company" placeholder="Company name"></div>
             <div class="col-12">
-              <label class="form-label" for="service">Service needed</label>
+              <label class="form-label" for="service"><i class="bi bi-tools"></i>Service needed</label>
               <select class="form-select" id="service" required>
                 <option value="" selected disabled>Choose a service</option>
                 <option>Network design and installation</option>
@@ -383,18 +244,13 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
                 <option>Wi-Fi solutions</option>
                 <option>Network security</option>
                 <option>Structured cabling</option>
-                <option>IT maintenance plan (Basic)</option>
-                <option>IT maintenance plan (Standard)</option>
-                <option>IT maintenance plan (Premium)</option>
+                <option>IT maintenance (AMC)</option>
                 <option>CCTV / other</option>
               </select>
               <div class="invalid-feedback">Choose a service.</div>
             </div>
-            <div class="col-12"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" rows="4" placeholder="Number of users, location, current problem…"></textarea></div>
-            <div class="col-12 d-flex flex-wrap gap-3 align-items-center">
-              <button class="btn btn-tc" type="submit"><i class="bi bi-whatsapp me-2"></i>Send on WhatsApp</button>
-              <button class="btn btn-ghost" type="button" id="mailBtn"><i class="bi bi-envelope me-2"></i>Send by email</button>
-            </div>
+            <div class="col-12"><label class="form-label" for="message"><i class="bi bi-chat-left-text"></i>Message</label><textarea class="form-control" id="message" rows="4" placeholder="Number of users, location, current problem…"></textarea></div>
+            <div class="col-12"><button class="btn btn-tc btn-lg w-100" type="submit"><i class="bi bi-whatsapp me-2"></i>Send inquiry on WhatsApp</button></div>
             <div class="col-12"><div class="small text-muted-2" id="formNote" role="status"></div></div>
           </div>
         </form>
@@ -406,156 +262,47 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--cyan
 <!-- FOOTER -->
 <footer>
   <div class="container">
+    <div class="cta">
+      <div><h4>Need a reliable network? Talk to our engineers.</h4><p>Free consultation and a clear quotation, Monday to Saturday.</p></div>
+      <div class="d-flex flex-wrap gap-2"><a class="btn btn-tc" href="https://wa.me/971524509691" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>WhatsApp us</a><a class="btn btn-ghost" href="tel:+971524509691"><i class="bi bi-telephone me-2"></i>Call now</a></div>
+    </div>
     <div class="row g-4">
       <div class="col-lg-4">
-        <div class="d-flex align-items-center gap-2 mb-3"><span class="brand-text">Time Cure<small>TECHNOLOGIES</small></span></div>
-        <p class="text-muted-2 small" style="max-width:20rem">Reliable networking, configuration and maintenance for growing businesses.</p>
-        <div class="social"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a></div>
+        <div class="brand-text mb-3">
+          <svg width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><linearGradient id="lg2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#2DE2E6"/><stop offset="1" stop-color="#8B6CFF"/></linearGradient></defs>
+        <path d="M20 4a16 16 0 1 0 16 16" stroke="url(#lg2)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M20 11v9l6 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="34" cy="8" r="3.2" fill="#2DE2E6"/>
+      </svg>
+          <span>Time Cure<small>TECHNOLOGIES</small></span></div>
+        <p class="text-muted-2 small mb-3" style="max-width:22rem">Networking, router and switch configuration, Wi-Fi, security, cabling and IT maintenance for businesses in Abu Dhabi and across the UAE.</p>
+        <div class="f-row"><i class="bi bi-geo-alt-fill"></i><span>Musaffah Industrial Area M45, near Red Star Gift Center, Abu Dhabi, UAE</span></div>
+        <div class="f-row"><i class="bi bi-telephone-fill"></i><a href="tel:+971524509691">+971 52 450 9691</a></div>
+        <div class="f-row"><i class="bi bi-clock-fill"></i><span>Mon–Sat, 9:00 AM – 5:00 PM</span></div>
+        <div class="social mt-3"><a href="https://wa.me/971524509691" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a><a href="tel:+971524509691" aria-label="Call us"><i class="bi bi-telephone"></i></a><a href="https://www.google.com/maps/search/?api=1&query=Musaffah+Industrial+Area+M45+Abu+Dhabi" target="_blank" rel="noopener" aria-label="Location"><i class="bi bi-geo-alt"></i></a></div>
       </div>
-      <div class="col-6 col-lg-2"><h5>Company</h5><ul><li><a href="#why">Why us</a></li><li><a href="#process">How we work</a></li><li><a href="#plans">Plans</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="col-6 col-lg-3"><h5>Services</h5><ul><li><a href="#services">Network design</a></li><li><a href="#services">Routers and switches</a></li><li><a href="#services">Wi-Fi and security</a></li><li><a href="#services">Cabling and AMC</a></li></ul></div>
-      <div class="col-lg-3"><h5>Get in touch</h5><ul class="text-muted-2 small"><li>[+92 XXX XXXXXXX]</li><li>info@yourdomain.com</li><li>[Your office address]</li></ul></div>
+      <div class="col-6 col-lg-2"><h5>Useful links</h5><ul>
+        <li><i class="bi bi-chevron-right"></i><a href="#top">Home</a></li><li><i class="bi bi-chevron-right"></i><a href="#about">About us</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">Services</a></li><li><i class="bi bi-chevron-right"></i><a href="#process">How we work</a></li><li><i class="bi bi-chevron-right"></i><a href="#why">Why us</a></li><li><i class="bi bi-chevron-right"></i><a href="#contact">Contact</a></li></ul></div>
+      <div class="col-6 col-lg-3"><h5>Our services</h5><ul>
+        <li><i class="bi bi-chevron-right"></i><a href="#services">Network design</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">Router and switch setup</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">Wi-Fi solutions</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">Network security</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">Structured cabling</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">IT maintenance (AMC)</a></li><li><i class="bi bi-chevron-right"></i><a href="#services">CCTV and others</a></li></ul></div>
+      <div class="col-lg-3"><h5>Stay in touch</h5>
+        <p class="text-muted-2 small">Leave your name and we will message you on WhatsApp with updates and offers.</p>
+        <form class="nl" id="nlForm"><input class="form-control" id="nlName" required placeholder="Your name" aria-label="Your name"><button class="btn btn-tc" type="submit" aria-label="Send on WhatsApp"><i class="bi bi-send"></i></button></form>
+      </div>
     </div>
     <hr style="border-color:var(--line)" class="my-4">
-    <div class="d-flex flex-wrap justify-content-between small text-muted-2">
-      <span>&copy; <span id="yr"></span> Time Cure Technologies. All rights reserved.</span>
-      <span><a href="#">Privacy policy</a> &nbsp;|&nbsp; <a href="#">Terms</a></span>
+    <div class="d-flex flex-wrap justify-content-between gap-2 small text-muted-2">
+      <span>&copy; <span id="yr"></span> <b>Time Cure Technologies</b>. All rights reserved.</span>
+      <span><i class="bi bi-geo-alt me-1"></i>Abu Dhabi, UAE</span>
     </div>
   </div>
 </footer>
+<a class="totop" id="toTop" href="#top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
 
 <a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-/* ===== CONFIG: edit these ===== */
-const WHATSAPP = "92XXXXXXXXXX";          // country code + number, no + or spaces
-const EMAIL    = "info@yourdomain.com";
-/* ================================ */
-
-document.getElementById('yr').textContent = new Date().getFullYear();
-document.getElementById('waFloat').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hello Time Cure Technologies, I need IT support.")}`;
-
-/* Navbar state */
-const nav = document.getElementById('mainNav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
-onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-document.querySelectorAll('#navMenu .nav-link').forEach(l => l.addEventListener('click', () => {
-  const c = bootstrap.Collapse.getInstance(document.getElementById('navMenu')); if (c) c.hide();
-}));
-
-/* Plan buttons preselect service */
-document.querySelectorAll('[data-plan]').forEach(b => b.addEventListener('click', () => {
-  document.getElementById('service').value = `IT maintenance plan (${b.dataset.plan})`;
-}));
-
-/* Contact form */
-const form = document.getElementById('quoteForm'), note = document.getElementById('formNote');
-const val = id => document.getElementById(id).value.trim();
-const buildMsg = () => [
-  'New enquiry – Time Cure Technologies',
-  `Name: ${val('name')}`, `Phone: ${val('phone')}`,
-  val('email') && `Email: ${val('email')}`, val('company') && `Company: ${val('company')}`,
-  `Service: ${val('service')}`, val('message') && `Details: ${val('message')}`
-].filter(Boolean).join('\n');
-
-form.addEventListener('submit', e => {
-  e.preventDefault(); form.classList.add('was-validated');
-  if (!form.checkValidity()) { note.textContent = 'Fill in the highlighted fields to continue.'; return; }
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(buildMsg())}`, '_blank', 'noopener');
-  note.textContent = 'WhatsApp opened with your details. Send the message to complete your request.';
-});
-document.getElementById('mailBtn').addEventListener('click', () => {
-  form.classList.add('was-validated');
-  if (!form.checkValidity()) { note.textContent = 'Fill in the highlighted fields to continue.'; return; }
-  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Quote request – ' + val('service'))}&body=${encodeURIComponent(buildMsg())}`;
-});
-
-/* ===== Hero: live network topology ===== */
-(() => {
-  const cv = document.getElementById('net'), ctx = cv.getContext('2d');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W, H, nodes = [], packets = [], mouse = {x:-999, y:-999}, running = true, last = 0;
-
-  const resize = () => {
-    const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
-    W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n = Math.max(30, Math.min(72, Math.round(W * H / 20000)));
-    nodes = Array.from({length:n}, (_, i) => ({
-      x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-.5)*.28, vy: (Math.random()-.5)*.28,
-      hub: i % 9 === 0, r: i % 9 === 0 ? 5 : 2.4
-    }));
-  };
-
-  const links = () => {
-    const out = [];
-    for (let i = 0; i < nodes.length; i++) for (let j = i+1; j < nodes.length; j++) {
-      const a = nodes[i], b = nodes[j], max = (a.hub || b.hub) ? 200 : 135;
-      const d = Math.hypot(a.x-b.x, a.y-b.y);
-      if (d < max) out.push([a, b, d, max]);
-    }
-    return out;
-  };
-
-  const frame = t => {
-    if (!running) return;
-    const dt = Math.min(40, t - last || 16); last = t;
-    ctx.clearRect(0,0,W,H);
-
-    for (const n of nodes) {
-      n.x += n.vx * dt/16; n.y += n.vy * dt/16;
-      if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1;
-      const dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.hypot(dx, dy);
-      if (d < 110 && d > 0) { n.x += dx/d * .6; n.y += dy/d * .6; }
-    }
-
-    const L = links();
-    for (const [a, b, d, max] of L) {
-      const al = (1 - d/max) * .5;
-      ctx.strokeStyle = `rgba(130,165,255,${al})`; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-    }
-
-    /* data packets travelling along links */
-    if (L.length && packets.length < 14 && Math.random() < .08) {
-      const l = L[Math.floor(Math.random()*L.length)];
-      packets.push({a:l[0], b:l[1], t:0, s:.008 + Math.random()*.01, c: Math.random() < .5 ? '45,226,230' : '139,108,255'});
-    }
-    packets = packets.filter(p => p.t < 1);
-    for (const p of packets) {
-      p.t += p.s * dt/16;
-      const x = p.a.x + (p.b.x-p.a.x)*p.t, y = p.a.y + (p.b.y-p.a.y)*p.t;
-      const g = ctx.createRadialGradient(x,y,0,x,y,9);
-      g.addColorStop(0, `rgba(${p.c},.95)`); g.addColorStop(1, `rgba(${p.c},0)`);
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x,y,9,0,7); ctx.fill();
-    }
-
-    /* cursor connections */
-    for (const n of nodes) {
-      const d = Math.hypot(n.x-mouse.x, n.y-mouse.y);
-      if (d < 170) {
-        ctx.strokeStyle = `rgba(45,226,230,${(1-d/170)*.8})`; ctx.lineWidth = 1.2;
-        ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(n.x, n.y); ctx.stroke();
-      }
-    }
-
-    for (const n of nodes) {
-      ctx.fillStyle = n.hub ? '#2DE2E6' : '#8B6CFF';
-      if (n.hub) { ctx.shadowColor = '#2DE2E6'; ctx.shadowBlur = 16; }
-      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-      if (n.hub) { ctx.strokeStyle = 'rgba(45,226,230,.35)'; ctx.beginPath(); ctx.arc(n.x, n.y, n.r+5, 0, 7); ctx.stroke(); }
-    }
-    if (!reduce) requestAnimationFrame(frame);
-  };
-
-  addEventListener('resize', () => { resize(); if (reduce) frame(0); });
-  cv.parentElement.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
-  cv.parentElement.addEventListener('pointerleave', () => { mouse.x = mouse.y = -999; });
-  new IntersectionObserver(([en]) => { running = en.isIntersecting; if (running && !reduce) requestAnimationFrame(frame); }).observe(cv);
-
-  resize(); reduce ? frame(0) : requestAnimationFrame(frame);
-})();
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
